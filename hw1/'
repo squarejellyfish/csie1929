@@ -1,0 +1,43 @@
+def die(x1, y1, x2, y2):
+    return x1 == x2 and y1 == y2
+
+def main():
+    m,n,x1,y1,e1,n1,f1,x2,y2,e2,n2,f2 = map(int, input().split())
+    t, ee1, nn1, ee2, nn2 = 0, e1, n1, e2, n2
+    move_set = [[0, 1], [1, 0]] # north, east
+    while (f1 or f2):
+        # robo 1
+        if (f1):
+            if (n1):
+                x1 += move_set[0][0]
+                y1 += move_set[0][1]
+                n1 -= 1
+            if (e1):
+                x1 += move_set[1][0]
+                y1 += move_set[1][1]
+
+            if (x1 > m):
+                x1 = 0
+            if (y1 > n):
+                y1 = 0
+            f1 -= 1
+            move[0] -= 1
+        if (die(x1, y1, x2, y2)):
+            print("robots explode at time {}".format(t))
+            return
+        if (f2 and move[1]):
+            x2 += move[4]
+            y2 += move[5]
+            if (x2 > m):
+                x2 = 0
+            if (y2 > n):
+                y2 = 0
+            f2 -= 1
+            move[1] -= 1
+        if (die(x1, y1, x2, y2)):
+            print("robots explode at time {}".format(t))
+            return
+        t += 1
+    print("robots will not explode")
+
+main()
