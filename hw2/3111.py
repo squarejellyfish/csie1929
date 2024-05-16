@@ -12,7 +12,7 @@ for word, val in count.items():
     if (l >= n1 and l <= n2) and (val >= m1 and val <= m2):
         output.append([word, val])
 
-output.sort(key=lambda x: (len(x[0]), -x[1], [ord(c) for c in x[0]]))
+output.sort(key=lambda pair: (len(pair[0]), -pair[1], pair[0]))
 for pair in output:
     print(pair[0], pair[1])
 

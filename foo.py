@@ -1,16 +1,19 @@
-foods = dict()
+import csv
 
-n = int(input())
-for _ in range(n):
-    input_str = input().split()
-    food, num = input_str[0], int(input_str[1])
+file = open("fuck.csv", "r")
+content = csv.reader(file)
+content_row = []
+for row in content:
+    content_row.append(row)
 
-    if (food in foods):
-        foods[food] += num # update
-    else:
-        foods[food] = num # append
+file = open("dick.csv", "w+")
+writer = csv.writer(file)
+for row in content_row:
+    writer.writerow(row)
+file.close()
 
-# find max
-print("key, val: ")
-for key, val in foods.items():
-    print(key, val)
+file = open("dick.csv", "r")
+for row in file.readlines():
+    print(row)
+
+
