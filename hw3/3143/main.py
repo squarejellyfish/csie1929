@@ -6,15 +6,16 @@ while True:
     song = input().replace("Song ", "")
     if (song == "q"): break
 
-    writer = songlist.query(dct, song)
-    if (writer):
-        print("JJ has known this song writer: {}".format(writer))
+    in_dct = songlist.query(dct, song)
+    if in_dct:
+        print("JJ has known this song writer: {}".format(in_dct))
     else:
         print("Writer is?")
-        writer = input().replace("Singer ", "")
-        dct = songlist.practice(dct, song, writer)
+        in_dct = input().replace("Singer ", "")
+        dct = songlist.practice(dct, song, in_dct)
         plst.append(song)
 
 print("JJ's song list:")
 print(sorted(plst))
 print("{} songs".format(len(plst)))
+
